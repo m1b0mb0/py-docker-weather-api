@@ -24,7 +24,10 @@ def get_weather() -> None:
         data = response.json()
 
         if response.status_code != 200:
-            error_message = data.get("error", {}).get("message", "Unknown error")
+            error_message = (
+                data.get("error", {})
+                .get("message", "Unknown error")
+            )
             print(f"Error: {error_message}")
             return
 
